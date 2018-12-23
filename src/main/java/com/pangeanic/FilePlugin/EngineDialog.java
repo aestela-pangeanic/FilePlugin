@@ -47,10 +47,10 @@ public class EngineDialog extends JDialog {
     ActionListener actionListener;
     static String[] listData = {};
     static EngineDialog demo;
-    PGBClient myParent;
+    FilePlugin myParent;
     private JSplitPane splitH;
     
-    public EngineDialog(PGBClient parent) {
+    public EngineDialog(FilePlugin parent) {
         super(parent, "Choosing an engine", true);
         //src/main/resources/pangeamt_icon.png
         

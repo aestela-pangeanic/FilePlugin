@@ -49,9 +49,9 @@ import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.swing.table.JTableHeader;
 
-public class PGBClient extends JFrame {
+public class FilePlugin extends JFrame {
 
-    static PGBClient test;
+    static FilePlugin test;
     private static ResourceBundle mybundle;
     static boolean apiKeyOk = false;
     
@@ -332,7 +332,7 @@ public class PGBClient extends JFrame {
                             }
                             msg = msg + ".\n\nAre you sure?";
                             //ImageIcon icon = new ImageIcon(getClass().getResource("src/main/resources/pangeamt_icon.png"));
-                            ImageIcon picture1 = new ImageIcon("src/main/resources/pangeamt_icon.png");
+                            ImageIcon picture1 = new ImageIcon("src/main/resources/MTHubIco.PNG");
                             int result = JOptionPane.showConfirmDialog((Component) null, msg, "Confirmation", JOptionPane.INFORMATION_MESSAGE);// icon);    
                             if (result != JOptionPane.OK_OPTION) {
                                 return false;
@@ -956,16 +956,15 @@ public class PGBClient extends JFrame {
                 settingsLabel.setForeground(Color.WHITE);
                 
                 settingsLabel.setBounds(top + 10, top, 650, 60);
-                //settingsLabel.setPreferredSize(new Dimension(200, 200));
-                //settingsLabel.setText("Drop files here to " + currentProcess +" "+ currentSrc + " -> "+ currentTgt +" "+ "\n" + currentEngine.descr+ "  using "+ currentGlossary + " [" +currentGlossaryId + "]" );
                 
-                settingsLabel.setText("<html>Drop files here to " + currentProcess + " " + currentSrc + " -> " + currentTgt + " " + currentEngine.descr + " using " + currentGlossary + " [" + currentGlossaryId + "]" + "<br>Languages Selected: From " + currentSrc.toUpperCase() + " to " + currentTgt.toUpperCase() + "</html>");
+                //settingsLabel.setText("<html>Drop files here to " + currentProcess + " " + currentSrc + " -> " + currentTgt + " " + currentEngine.descr + " using " + currentGlossary + " [" + currentGlossaryId + "]" + "<br>Languages Selected: From " + currentSrc.toUpperCase() + " to " + currentTgt.toUpperCase() + "</html>");
+                settingsLabel.setText("<html>Drop files here to translate " + currentSrc + " -> " + currentTgt + " " + currentEngine.descr + "<br/>Languages Selected: From " + currentSrc.toUpperCase() + " to " + currentTgt.toUpperCase() + "</html>");
             
         }
     }
 
-    public PGBClient() {
-        super("Pangeanic PGB Client App. V2.2.1");
+    public FilePlugin() {
+        super("MT-Hub FilePlugin App. V0");
 
         statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
         getContentPane().add(statusPanel, BorderLayout.SOUTH);
@@ -1035,7 +1034,7 @@ public class PGBClient extends JFrame {
         dp.setTransferHandler(handler);
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("src/main/resources/pangeamt_icon.png")));
 
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/pangeamt_icon.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/MTHubIco.PNG"));
 
     }
 
@@ -1172,7 +1171,7 @@ public class PGBClient extends JFrame {
         } catch (Exception e) {
         }
 
-        test = new PGBClient();
+        test = new FilePlugin();
 
         test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         test.setSize(800, 600);
@@ -1190,9 +1189,9 @@ public class PGBClient extends JFrame {
 
     public static void main(final String[] args) {
         // en_US
-        PGBClient pgbclient = new PGBClient();
+        FilePlugin pgbclient = new FilePlugin();
         // Setup the Preferences for this application, by class.
-        prefs = Preferences.userNodeForPackage(PGBClient.class);
+        prefs = Preferences.userNodeForPackage(FilePlugin.class);
         loadPrefs();
 
         Locale.setDefault(new Locale("en", "EN"));
@@ -1677,7 +1676,8 @@ public class PGBClient extends JFrame {
         mb.add(eng);
 
         JMenu prc = new JMenu("File Process");
-        mb.add(prc);
+        
+        //mb.add(prc);
 
         ButtonGroup prcGroup = new ButtonGroup();
 
@@ -1810,7 +1810,7 @@ public class PGBClient extends JFrame {
         prc2MenuItem.setSelected(false);
 
         JMenu glo = new JMenu("Glossaries");
-        mb.add(glo);
+        //mb.add(glo);
 
         ButtonGroup gloGroup = new ButtonGroup();
         gloMenuItem = new JMenuItem("Select Glossary");

@@ -27,7 +27,7 @@ public class GlossaryDialog extends JDialog {
     private JButton btnCancel;
     private boolean succeeded;
  
-    public GlossaryDialog(PGBClient parent, File file) {
+    public GlossaryDialog(FilePlugin parent, File file) {
         super(parent, "Upload of Glossary " + file.getName(), true);
         //
         JPanel panel = new JPanel(new GridBagLayout());

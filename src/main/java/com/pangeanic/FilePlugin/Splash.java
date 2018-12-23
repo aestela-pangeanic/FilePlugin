@@ -23,7 +23,7 @@ public class Splash extends Frame implements ActionListener {
         g.drawString("Loading "+comps[(frame/5)%3]+"...", 385, 190);
         
     }
-    public Splash(PGBClient test) {
+    public Splash(FilePlugin test) {
         super("SplashScreen");
         System.out.println("Splash starts");
         setSize(300, 200);
